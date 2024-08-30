@@ -1,5 +1,6 @@
 
 import 'package:dartz/dartz.dart';
+import 'package:hamontest/core/app_url.dart';
 import 'package:injectable/injectable.dart';
 
 import "package:http/http.dart" as http;
@@ -16,7 +17,7 @@ class StudentRepoImpl extends StudentRepo {
   @override
   Future<Either<Failure, StudentModel>> getStudent() async {
     try {
-      final response = await http.get(Uri.parse('https://nibrahim.pythonanywhere.com/students/?api_key=42efb'));
+      final response = await http.get(Uri.parse(AppUrl.student));
       if (response.statusCode == 200) { 
        final data = studentModelFromJson(response.body);
       

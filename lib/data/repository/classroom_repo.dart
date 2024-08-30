@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:hamontest/core/app_url.dart';
 import 'package:injectable/injectable.dart';
 
 import "package:http/http.dart" as http;
@@ -21,7 +22,7 @@ class ClassroomRepoImpl extends ClassroomRepo {
     try {
       print("testing......");
      // final url = Uri.https.;
-      final response = await http.get(Uri.parse('https://nibrahim.pythonanywhere.com/classrooms/?api_key=42efb'));
+      final response = await http.get(Uri.parse(AppUrl.classroom));
       if (response.statusCode == 200) { 
        final data = classroomModelFromJson(response.body);
        print("CLASSROOMS");
